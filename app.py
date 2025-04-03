@@ -5,7 +5,7 @@ import shortuuid
 app = Flask(__name__)
 
 # Connect to Redis (Running in a separate container)
-redis_client = redis.Redis(host='redis', port=6379, decode_responses=True)
+redis_client = redis.StrictRedis(host='redis', port=6379, decode_responses=True)
 
 @app.route('/shorten', methods=['POST'])
 def shorten_url():
